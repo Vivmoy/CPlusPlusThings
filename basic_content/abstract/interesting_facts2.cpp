@@ -32,6 +32,9 @@ int main(void)
     //Base b;  //error! 不能创建抽象类的对象
     //Base *b = new Base(); error!
     Base *bp = new Derived(); // 抽象类的指针和引用 -> 由抽象类派生出来的类的对象
+    Derived d;
+    Base *b = &d;
+    b->show();
     bp->show();
     return 0; 
 } 

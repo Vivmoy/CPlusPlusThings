@@ -13,6 +13,7 @@ class Base
 { 
     int x; 
     public: 
+    Base(int i) { x = i; }
     virtual void fun() = 0; 
     int getX() { return x; } 
 }; 
@@ -21,12 +22,16 @@ class Derived: public Base
 { 
     int y; 
     public: 
-    void fun() { cout << "fun() called"; }  // 实现了fun()函数
+    Derived(int i,int j) : Base(i) { y = j; }
+    void fun() { cout << "fun() called" << endl; }  // 实现了fun()函数
+    void get() { cout << y << endl; } 
 }; 
 
 int main(void) 
 { 
-    Derived d; 
+    Derived d(1,2); 
     d.fun(); 
+    d.getX();
+    d.get();
     return 0; 
 } 
